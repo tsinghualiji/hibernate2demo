@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<!-- 是用来描述数据库的连接 -->
+<session-factory>
+	<!-- 
+		驱动
+	-->
+	<property name="connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<!-- 
+		url
+	-->
+	<property name="connection.url">
+		jdbc:mysql://localhost:3306/hibernate0909
+	</property>
+	<!-- 
+		username
+	-->
+	<property name="connection.username">root</property>
+	<!-- 
+		password
+	-->
+	<property name="connection.password">root</property>
+	<!-- 
+		hibernate针对建表的操作
+		update  如果有表，检查表的结构，如果没有则创建
+		create-drop 启动hibernate创建表，结束hibernate删除表
+		create  每次启动都重新创建表
+		validate 每次启动都检查表的结构
+	-->
+	<property name="hbm2ddl.auto">update</property>
+	<property name="show_sql">true</property>
+	<property name="current_session_context_class">thread</property>
+	<mapping resource="cn/itcast/hibernate0909/session/Classes.hbm.xml" />
+	<mapping resource="cn/itcast/hibernate0909/session/Student.hbm.xml" />
+</session-factory>
+</hibernate-configuration>
